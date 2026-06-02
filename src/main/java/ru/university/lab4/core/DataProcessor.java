@@ -10,20 +10,20 @@ public class DataProcessor {
         List<List<Integer>> combinations = processData(payload.numbers(), payload.target());
 
         List<String> lines = new ArrayList<>();
-        lines.add("Target = " + payload.target());
-        lines.add("Numbers = " + payload.numbers());
+        lines.add("Целевая сумма = " + payload.target());
+        lines.add("Числа = " + payload.numbers());
 
         if (combinations.isEmpty()) {
-            lines.add("No combinations found.");
+            lines.add("Подходящие тройки не найдены.");
         } else {
-            lines.add("Combinations:");
+            lines.add("Найденные тройки:");
             for (List<Integer> combination : combinations) {
                 lines.add(formatCombination(combination, payload.target()));
             }
         }
 
         if (!payload.warnings().isEmpty()) {
-            lines.add("Warnings:");
+            lines.add("Предупреждения:");
             lines.addAll(payload.warnings());
         }
 
@@ -92,7 +92,7 @@ public class DataProcessor {
                 try {
                     target = Integer.parseInt(rawTarget);
                 } catch (NumberFormatException exception) {
-                    warnings.add("Invalid target value skipped: " + normalized);
+                    warnings.add("Некорректная целевая сумма пропущена: " + normalized);
                 }
                 continue;
             }
@@ -105,7 +105,7 @@ public class DataProcessor {
                 try {
                     numbers.add(Integer.parseInt(token));
                 } catch (NumberFormatException exception) {
-                    warnings.add("Invalid number skipped: " + token);
+                    warnings.add("Некорректное число пропущено: " + token);
                 }
             }
         }

@@ -1,58 +1,32 @@
-# Lab 4 - Data Processing Pipeline
+# Лаба 4 - обработка данных
 
-Course lab for building a reusable processing pipeline with one shared core and two client applications.
+Вариант 15: найти все уникальные комбинации из трех целых чисел, сумма которых равна заданному значению.
 
-Variant 15:
-Find all unique combinations of 3 integers whose sum is equal to a target value.
-
-Example:
-
-`[-1, 0, 1, 2, -1, -4], target=0 -> [-1, -1, 2], [-1, 0, 1]`
-
-## Project structure
-
-- `src/main/java/ru/university/lab4/core` - reusable business logic
-- `src/main/java/ru/university/lab4/console` - console client
-- `src/main/java/ru/university/lab4/gui` - JavaFX client
-- `src/main/java/ru/university/lab4/models` - command-line model
-- `test` - sample input files
-- `output` - result folder for console mode
-
-## Input format
-
-The pipeline accepts an array of strings.
-
-- Empty lines are ignored.
-- A line like `target=0` or `target: 5` sets the target sum.
-- The remaining lines may contain one integer or several integers separated by spaces, commas, or semicolons.
-
-If target is not provided, `0` is used.
-
-## Console run
-
-```powershell
-mvn compile
-mvn exec:java -Dexec.args="-i test/input01.txt -o output/result01.txt"
-```
-
-## JavaFX run
-
-```powershell
-mvn javafx:run
-```
-
-## Sample input
+Пример:
 
 ```text
-target=0
--1
-0
-1
-2
--1
--4
-3
--2
-4
--3
+[-1, 0, 1, 2, -1, -4], target=0 -> [-1, -1, 2], [-1, 0, 1]
+```
+
+## Структура
+
+- `core` - общая бизнес-логика;
+- `console` - консольный клиент;
+- `gui` - JavaFX-интерфейс;
+- `models` - модель аргументов командной строки;
+- `test` - примеры входных файлов.
+
+## Формат входных данных
+
+- пустые строки игнорируются;
+- строка `target=0` или `target: 5` задает целевую сумму;
+- остальные строки содержат числа, разделенные пробелами, запятыми или точками с запятой;
+- если `target` не указан, используется `0`.
+
+## Запуск
+
+```powershell
+mvn test
+mvn exec:java -Dexec.args="-i test/input01.txt -o output.txt"
+mvn javafx:run
 ```

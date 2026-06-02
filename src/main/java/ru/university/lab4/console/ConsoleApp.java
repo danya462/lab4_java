@@ -34,15 +34,15 @@ public final class ConsoleApp {
 
             if (inputArgs.outputPath() != null) {
                 FileUtils.writeLines(inputArgs.outputPath(), List.of(outputLines));
-                System.out.println("Result file saved to " + inputArgs.outputPath().toAbsolutePath());
+                System.out.println("Файл результата сохранен: " + inputArgs.outputPath().toAbsolutePath());
             }
         } catch (IOException exception) {
-            System.err.println("File operation failed: " + exception.getMessage());
+            System.err.println("Ошибка работы с файлом: " + exception.getMessage());
         }
     }
 
     private static void printUsage() {
-        System.out.println("Usage: mvn exec:java -Dexec.args=\"-i test/input01.txt [-o output/result.txt]\"");
-        System.out.println("Arguments: " + Arrays.toString(new String[]{"-i", "inputFile", "-o", "outputFile"}));
+        System.out.println("Запуск: mvn exec:java -Dexec.args=\"-i test/input01.txt [-o output/result.txt]\"");
+        System.out.println("Аргументы: " + Arrays.toString(new String[]{"-i", "inputFile", "-o", "outputFile"}));
     }
 }

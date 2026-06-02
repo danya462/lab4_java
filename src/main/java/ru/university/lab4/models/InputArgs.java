@@ -14,12 +14,12 @@ public record InputArgs(Path inputPath, Path outputPath) {
             } else if ("-o".equals(argument)) {
                 outputPath = requireValue(args, ++index, "-o");
             } else {
-                throw new IllegalArgumentException("Unknown argument: " + argument);
+                throw new IllegalArgumentException("Неизвестный аргумент: " + argument);
             }
         }
 
         if (inputPath == null) {
-            throw new IllegalArgumentException("Input file is required.");
+            throw new IllegalArgumentException("Нужно указать входной файл.");
         }
 
         return new InputArgs(inputPath, outputPath);
@@ -27,7 +27,7 @@ public record InputArgs(Path inputPath, Path outputPath) {
 
     private static Path requireValue(String[] args, int index, String option) {
         if (index >= args.length) {
-            throw new IllegalArgumentException("Missing value for option " + option);
+            throw new IllegalArgumentException("Не указано значение для опции " + option);
         }
         return Path.of(args[index]);
     }

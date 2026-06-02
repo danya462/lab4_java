@@ -35,7 +35,7 @@ class DataProcessorTest {
         });
 
         String joined = String.join("\n", output);
-        assertTrue(joined.contains("Invalid number skipped: abc"));
-        assertTrue(joined.contains("No combinations found.") || joined.contains("1 + 2 + 3 = 6") == false);
+        assertTrue(joined.contains("Некорректное число пропущено: abc"));
+        assertTrue(joined.contains("Подходящие тройки не найдены.") || joined.contains("1 + 2 + 3 = 6") == false);
     }
 }

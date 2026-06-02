@@ -39,7 +39,7 @@ public class WindowApp extends Application {
                 -3
                 """);
 
-        Button processButton = new Button("Process");
+        Button processButton = new Button("Обработать");
         ListView<String> outputList = new ListView<>();
 
         processButton.setOnAction(event -> {
@@ -48,10 +48,10 @@ public class WindowApp extends Application {
         });
 
         VBox root = new VBox(10,
-                new Label("Input data. Use target=<value> on one line if needed."),
+                new Label("Входные данные. При необходимости укажите target=<значение> отдельной строкой."),
                 inputArea,
                 processButton,
-                new Label("Pipeline output"),
+                new Label("Результат обработки"),
                 outputList
         );
         root.setPadding(new Insets(16));
@@ -59,7 +59,7 @@ public class WindowApp extends Application {
         VBox.setVgrow(outputList, Priority.ALWAYS);
 
         Scene scene = new Scene(root, 720, 560);
-        stage.setTitle("Lab 4 - Data Processing Pipeline");
+        stage.setTitle("Лаба 4 - обработка данных");
         stage.setScene(scene);
         stage.show();
 
